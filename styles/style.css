@@ -1,0 +1,243 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #EEEEEE;
+}
+
+.logo {
+    width: 100%;
+    height: 92px;
+    background: #CF2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+main {
+    background: #EEEEEE;
+    margin-top: 123px;
+    margin-left: 19px;
+    margin-right: 19px;
+    margin-bottom: 108px;
+}
+
+.titles {
+    margin-left: 21px;
+    padding-top: 8px;
+}
+
+h1 {
+    font-size: 44px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h1, h2 {
+    color: white;
+}
+
+h1, label {
+    font-family: 'Righteous', cursive;
+}
+
+label {
+    font-size: 26px;
+}
+
+ul {
+    display: flex;
+    overflow: scroll;
+    width: 100%;
+    margin-top: 7px;
+    margin-bottom: 27px;
+}
+
+li {
+    min-width: 172px;
+    height: 216px;
+    background: white;
+    margin-right: 16px;
+    border: 4px solid transparent;
+}
+
+.li-clicked {
+    border: 4px solid #32B72F;
+    border-radius: 9px;
+    position: relative;
+}
+
+li .description {
+    width: 144px;
+    margin: 0 auto;
+    font-size: 15px;
+}
+
+p.item-name {
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 15px;
+    color: #A6A6A6;
+}
+
+.price {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+ion-icon {
+    display: none;
+}
+
+.li-clicked ion-icon {
+    display: block;
+    position: absolute;
+    font-size: 18px;
+    bottom: 10px;
+    right: 5px;
+}
+
+img {
+    margin-top: 18px;
+    width: 144px;
+    height: 87px;
+    border-radius: 9px;
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    height: 92px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: white;
+    z-index: 5;
+}
+
+.close-order {
+    width: 364px;
+    height: 61px;
+    font-size: 20px;
+    background: #CBCBCB;
+    border-radius: 50px;
+    color: white;
+}
+
+button.close-order-click{
+    background-color: #32B72F;
+    cursor: pointer;
+}
+
+button div {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.unconfirmed {
+    display: none;
+}
+
+.confirmed {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    top: 0;
+    justify-content: center;
+}
+
+.box-confirm {
+    border-radius: 9px;
+    display: block;
+    background: #50D074;
+    width: 90%;
+    height: 353px;
+    margin-top: 15vh;
+}
+
+.box-confirm p {
+    text-align: center;
+    margin-top: 21px;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 28px;
+}
+
+.box-confirm div {
+    display: flex;
+    font-size: 22px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 22px;
+    color: white;
+}
+
+.total-price {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.box-confirm .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.confirm {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 22px;
+    width: 95%;
+    height: 52px;
+    border-radius: 100px;
+    background-color: white;
+    color: #50D074;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel {
+    background-color: #50D074;
+    color: white;
+    font-size: 22px;
+    margin-top: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+.close-order:focus{
+    outline: none;
+}
+
+@media(max-width: 300px) {
+    .confirm {
+        font-size: 16px;
+    }
+
+    .box-confirm {
+        height: 400px;
+    }
+}
