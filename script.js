@@ -7,9 +7,9 @@ const closingScreen = document.querySelector(".unconfirmed");
 let applyStyleArray = [];
 let dish, dessert, drink;
 
-let dishPrice;
-let dessertPrice;
-let drinkPrice;
+let dishPrice    = 0;
+let dessertPrice = 0;
+let drinkPrice   = 0;
 
 let dishName;
 let dessertName;
@@ -71,15 +71,20 @@ function addLiStyle(li, index) {
 };
 
 function addAndRemoveLiStyle(li, index) {
-    applyStyleArray[index].classList.remove("li-clicked");
-    li.classList.add("li-clicked");
-    applyStyleArray[index] = li;
+    if(applyStyleArray[index] === li) {
+        applyStyleArray[index].classList.remove("li-clicked");
+        applyStyleArray[index] = undefined;
+    } else {
+        applyStyleArray[index].classList.remove("li-clicked");
+        li.classList.add("li-clicked");
+        applyStyleArray[index] = li;
+    }
 }
 
 function changeButtonStyleAndListen() {
     let count = 0;
 
-    for(let i =0; i < 2; i++){
+    for(let i = 0; i < 2; i++){
         if(applyStyleArray[i] !== undefined) {
             count++;
         }
@@ -89,21 +94,39 @@ function changeButtonStyleAndListen() {
         buttonCloseOrder.classList.add("close-order-click");
         buttonCloseOrder.innerHTML = "Fechar pedido";
 
-        buttonCloseOrder.addEventListener("click", function() {
-            closeOrder();
-        });        
-    };
+        buttonCloseOrder.addEventListener("click", closeOrder); 
+
+    } else if(count < 1) {
+        buttonCloseOrder.classList.remove("close-order-click");
+        buttonCloseOrder.innerHTML = "Selecione pelo menos um tipo de salgadinhos";
+        buttonCloseOrder.removeEventListener("click", closeOrder); 
+    }
 };
 
 function message() {
 
-    dishPrice    = dish.children[0].querySelector(".price").getAttribute("value");
-    dessertPrice = dessert.children[0].querySelector(".price").getAttribute("value");
-    drinkPrice   = drink.children[0].querySelector(".price").getAttribute("value");
+    if(dish === undefined) {
+        dishName = "Salgadinhos Fritos";
+        dishPrice = 0;
+    } else {
+        dishPrice    = dish.children[0].querySelector(".price").getAttribute("value");
+        dishName     = dish.children[0].querySelector(".item-name").innerHTML
+    }
 
-    dishName     = dish.children[0].querySelector(".item-name").innerHTML
-    dessertName  = dessert.children[0].querySelector(".item-name").innerHTML
-    drinkName    = drink.children[0].querySelector(".item-name").innerHTML
+    if(dessert === undefined) {
+        dessertName = "Bebida";
+        dessertPrice = 0;
+    } else {
+        dessertPrice = dessert.children[0].querySelector(".price").getAttribute("value");
+        dessertName  = dessert.children[0].querySelector(".item-name").innerHTML
+    }
+    if(drink === undefined) {
+        drinkName = "Salgadinhos Congelados";
+        drinkPrice = 0;
+    } else {
+        drinkPrice   = drink.children[0].querySelector(".price").getAttribute("value");
+        drinkName    = drink.children[0].querySelector(".item-name").innerHTML
+    }
 
     let price = Number(dishPrice) + Number(dessertPrice) + Number(drinkPrice);
     let msg = `Olá, gostaria de fazer o pedido:\n
